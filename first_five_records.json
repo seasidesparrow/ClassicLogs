@@ -1,0 +1,147 @@
+[
+    {
+        "logfile": "DOI-FIXME", 
+        "records": [
+            {
+                "error_msg": "10.1002/andp.18050200605", 
+                "error_type": "DupDOI:", 
+                "timestamp_read": "2017-12-18 20:13:03.534245", 
+                "timestamp_write": "2017-12-17 23:11:51.530741"
+            }, 
+            {
+                "error_msg": "10.1002/andp.18050200208", 
+                "error_type": "DupDOI:", 
+                "timestamp_read": "2017-12-18 20:13:03.534274", 
+                "timestamp_write": "2017-12-17 23:11:51.530741"
+            }, 
+            {
+                "error_msg": "10.1002/andp.18150500802", 
+                "error_type": "DupDOI:", 
+                "timestamp_read": "2017-12-18 20:13:03.534283", 
+                "timestamp_write": "2017-12-17 23:11:51.530741"
+            }, 
+            {
+                "error_msg": "10.1093/mnras/2.14.114", 
+                "error_type": "DupDOI:", 
+                "timestamp_read": "2017-12-18 20:13:03.534292", 
+                "timestamp_write": "2017-12-17 23:11:51.530741"
+            }, 
+            {
+                "error_msg": "10.1093/mnras/2.16.130", 
+                "error_type": "DupDOI:", 
+                "timestamp_read": "2017-12-18 20:13:03.534300", 
+                "timestamp_write": "2017-12-17 23:11:51.530741"
+            }
+        ]
+    }, 
+    {
+        "logfile": "bibcodes.list.alt.dups", 
+        "records": [
+            {
+                "bibcode": "1949JGR....54...53W", 
+                "bibcode_2": "1949JGR....54...53V", 
+                "timestamp_read": "2017-12-18 20:13:04.049617", 
+                "timestamp_write": "2017-12-18 05:26:51.768436"
+            }, 
+            {
+                "bibcode": "1973JGR....78.4440.", 
+                "bibcode_2": "1973JGR....78.4440A", 
+                "timestamp_read": "2017-12-18 20:13:04.049636", 
+                "timestamp_write": "2017-12-18 05:26:51.768436"
+            }, 
+            {
+                "bibcode": "1987GeoRL..14.1211B", 
+                "bibcode_2": "1987GeoRL..14.1211V", 
+                "timestamp_read": "2017-12-18 20:13:04.049645", 
+                "timestamp_write": "2017-12-18 05:26:51.768436"
+            }, 
+            {
+                "bibcode": "1990PhFl....2.1030S", 
+                "bibcode_2": "1990PhFlA...2.1030S", 
+                "timestamp_read": "2017-12-18 20:13:04.049654", 
+                "timestamp_write": "2017-12-18 05:26:51.768436"
+            }, 
+            {
+                "bibcode": "1990PhFl....2.2055G", 
+                "bibcode_2": "1990PhFlA...2.2055G", 
+                "timestamp_read": "2017-12-18 20:13:04.049662", 
+                "timestamp_write": "2017-12-18 05:26:51.768436"
+            }
+        ]
+    }, 
+    {
+        "logfile": "update_citing.bibs.manual", 
+        "records": [
+            {
+                "bibcode": "1005PhRvC..71c4906H", 
+                "timestamp_read": "2017-12-18 20:13:04.170161", 
+                "timestamp_write": "2017-12-13 19:24:26.648558", 
+                "xmlfile": "PhRvC/0071/1005PhRvC..71c4906H.ref.xml"
+            }, 
+            {
+                "bibcode": "1016AtmEB..24....1B", 
+                "timestamp_read": "2017-12-18 20:13:04.170191", 
+                "timestamp_write": "2017-12-13 19:24:26.648558", 
+                "xmlfile": "AtmEB/0024/iss1.elsevier.xml"
+            }, 
+            {
+                "bibcode": "1016AtmEB..24....1B", 
+                "timestamp_read": "2017-12-18 20:13:04.170200", 
+                "timestamp_write": "2017-12-13 19:24:26.648558", 
+                "xmlfile": "AtmEB/0024/iss2.elsevier.xml"
+            }, 
+            {
+                "bibcode": "1016AtmEB..24....1B", 
+                "timestamp_read": "2017-12-18 20:13:04.170208", 
+                "timestamp_write": "2017-12-13 19:24:26.648558", 
+                "xmlfile": "AtmEB/0024/iss3.elsevier.xml"
+            }, 
+            {
+                "bibcode": "1873Natur...8..181S", 
+                "timestamp_read": "2017-12-18 20:13:04.170216", 
+                "timestamp_write": "2017-12-13 19:24:26.648558", 
+                "xmlfile": "Natur/0008/iss183.nature.xml"
+            }
+        ]
+    }, 
+    {
+        "logfile": "deleted_bibcodes", 
+        "records": [
+            {
+                "bibcode": "1989SciAm.260...92D", 
+                "database": "ast", 
+                "error_msg": "mkdeletedbibs.pl: loop in deleted bibcode lookup for 1989SciAm.260...92D", 
+                "timestamp_read": "2017-12-18 20:13:24.182206", 
+                "timestamp_write": "2017-12-17 13:37:49.933136"
+            }, 
+            {
+                "bibcode": "2005JASTP..67.1373A", 
+                "database": "ast", 
+                "error_msg": "mkdeletedbibs.pl: loop in deleted bibcode lookup for 2005JASTP..67.1373A", 
+                "timestamp_read": "2017-12-18 20:13:24.182250", 
+                "timestamp_write": "2017-12-17 13:37:49.933136"
+            }, 
+            {
+                "bibcode": "2010JCoMa..44.2429Y", 
+                "database": "ast", 
+                "error_msg": "mkdeletedbibs.pl: loop in deleted bibcode lookup for 2010JCoMa..44.2429Y", 
+                "timestamp_read": "2017-12-18 20:13:24.182262", 
+                "timestamp_write": "2017-12-17 13:37:49.933136"
+            }, 
+            {
+                "bibcode": "1992LNP...401..293J", 
+                "database": "ast", 
+                "error_msg": "mkdeletedbibs.pl: loop in deleted bibcode lookup for 1992LNP...401..293J", 
+                "timestamp_read": "2017-12-18 20:13:24.182272", 
+                "timestamp_write": "2017-12-17 13:37:49.933136"
+            }, 
+            {
+                "bibcode": "2016PTEP.2016J3A02H", 
+                "database": "ast", 
+                "error_msg": "mkdeletedbibs.pl: loop in deleted bibcode lookup for 2016PTEP.2016J3A02H", 
+                "timestamp_read": "2017-12-18 20:13:24.182282", 
+                "timestamp_write": "2017-12-17 13:37:49.933136"
+            }
+        ]
+    }
+]
