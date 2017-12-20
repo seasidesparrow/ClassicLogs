@@ -94,15 +94,15 @@ def doi_error_read():
     records = []
 
     fn = config.DOI_ERROR_LOG
-    doi_errors = get_log_data(fn)
+    log_object = get_log_data(fn)
 
     if config.DO_PARSE:
         logv_name = ['error_type','doi','timestamp','message']
-        for r in doi_errors.records:
+        for r in log_object.records:
             logv = r['error_msg'].split()
             records.append(make_record(logv_name,logv,r))
     else:
-        records = doi_errors.records
+        records = log_object.records
 
     return records
 
@@ -114,15 +114,15 @@ def bibcode_dups_read():
     records = []
 
     fn = config.BIBCODE_DUPLICATE_LOG
-    bibcode_dups = get_log_data(fn)
+    log_object = get_log_data(fn)
 
     if config.DO_PARSE:
         logv_name = ['bibcode','bibcode2','timestamp','message']
-        for r in bibcode_dups.records:
+        for r in log_object.records:
             logv = r['error_msg'].split()
             records.append(make_record(logv_name,logv,r))
     else:
-        records = bibcode_dups.records
+        records = log_object.records
 
     return records
 
@@ -134,17 +134,17 @@ def update_citing_read():
     records = []
 
     fn = get_most_recent_file(config.UPDATE_CITING_LOG)
-    update_citing = get_log_data(fn)
+    log_object = get_log_data(fn)
 
     if config.DO_PARSE:
         logv_name = ['bibcode', 'xmlfile', 'timestamp', 'message']
-        for r in update_citing.records:
+        for r in log_object.records:
             logv = r['error_msg'].split()
             if len(logv) < 2:
                 logv.append('')
             records.append(make_record(logv_name,logv,r))
     else:
-        records = update_citing.records
+        records = log_object.records
 
     return records
 
@@ -158,18 +158,18 @@ def deleted_bibs_read():
              get_most_recent_file(config.DELETED_BIBS_PHY)]
 
     for fn in files:
-        deleted_bibs = get_log_data(fn)
-        deleted_bibs_recs = [rec for rec in deleted_bibs.records if 'mkdeletedbibs' in rec['error_msg']]
+        log_object = get_log_data(fn)
+        log_object_recs = [rec for rec in log_object.records if 'mkdeletedbibs' in rec['error_msg']]
 
         if config.DO_PARSE:
-            for r in deleted_bibs_recs:
+            for r in log_object_recs:
                 logv_name = ['bibcode', 'database', 'timestamp', 'message']
                 db = fn[20:23]
                 lsplit = r['error_msg'].strip().split()
                 logv = [lsplit[-1],db]
                 records.append(make_record(logv_name,logv,r))
         else:
-            records = deleted_bibs_recs
+            records = log_object_recs
 
     return records
 
