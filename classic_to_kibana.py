@@ -62,22 +62,22 @@ def get_master_exclude():
     for fn in files:
 
         check_file_status(fn)
-        update_master = get_log_data(fn)
+        log_object = get_log_data(fn)
 
         if config.DO_PARSE:
+            log_object_recs = [rec for rec in log_object.records if '\t000000\t' in rec['error_msg']]
             logv_name = ['bibcode','bibfile','bibfile2','YYMM','number',
                          'database','timestamp','message']
             db = fn[20:23]
-            for r in update_master.records:
+            for r in log_object_records:
                 logv = r['error_msg'].split()
                 logv.append(db)
                 logv.append(r['timestamp'])
                 logv.append(r['error_msg'])
-                if(logv[4] == '000000'):
-                    rec = dict(zip(logv_name, logv))
-                    records.append(rec)
+                rec = dict(zip(logv_name, logv))
+                records.append(rec)
         else:
-            records = update_master.records
+            records.append(log_object_recs)
 
     return records
 
