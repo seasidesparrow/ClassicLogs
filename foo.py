@@ -1,40 +1,38 @@
-import os
 import json
-import datetime
-
-class GenericClassicLog(object):
-
-    def __init__(self,filename):
-        self.filename = filename
-        self.records = []
-        self.ts = self.timestamp()
-
-    def data(self):
-        with open(self.filename) as fp:
-            self.data = fp.read()
-#       return 
-
-    def parse(self):
-        for line in self.data.split('\n'):
-            rec = {'error_msg': line, 'timestamp': self.ts}
-            self.records.append(rec)
-#       return
-            
-    def timestamp(self):
-        self.ts = str(datetime.datetime.fromtimestamp(os.path.getmtime(self.filename)))
-        return self.ts
+from default import DefaultClassicLog
+import config
 
 
+# Update Master Log
 
+def get_log_data(fn):
+    log_data = DefaultClassicLog(fn)
+    log_data.data()
+    log_data.parse()
+    return log_data
 
-fn = '/Users/mtempleton/notes.txt'
+def get_master_exclude():
 
-foo = GenericClassicLog(fn)
+    records = []
+    files = [config.UPDATE_MASTER_AST,
+             config.UPDATE_MASTER_PHY,
+             config.UPDATE_MASTER_GEN]
 
-foo.data()
+    logv_name = ['bibcode','bibfile','bibfile2',
+                 'number','database','timestamp']
 
-foo.parse()
+    for fn in files:
+        db = fn[20:23]
+        update_master = get_log_data(fn)
+        for r in update_master.records:
+            logv = r['error_msg'].split()
+            if(logv[4] == '000000':
+                logv[4] = None
+                logv.append(db, r['timestamp'])
+                rec = {logv_name[i]: logv[i]} for i in range(len(logv))
+#               rec = {logv_name[0]: logv[0], logv_name[1]: logv[1], 
+#                      logv_name[2]: logv[2], logv_name[3]: logv[3], 
+#                      'database': db, 'timestamp': r['timestamp']}
+                records.append(rec)
 
-print foo.records
-
-#print json.dumps(foo.records, sort_keys = True, indent = 4)
+#       print json.dumps(records, sort_keys = True, indent = 4)
