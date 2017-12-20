@@ -6,8 +6,10 @@ import os
 import config
 from default import DefaultClassicLog
 
+
 class MissingLogfileError(Exception):
     pass
+
 
 def get_log_data(fn):
     log_data = DefaultClassicLog(fn)
@@ -19,7 +21,7 @@ def get_log_data(fn):
 
 def check_file_status(fn):
     if not os.path.isfile(fn):
-        error = "\nFile not found: %s\nLog files NOT loaded.\nStopping execution at %s"%(fn,str(datetime.datetime.now()))
+        error = "\n\n\tFile not found: %s\n\tLog files NOT loaded.\n\tStopping execution at %s\n"%(fn,str(datetime.datetime.now()))
         raise MissingLogfileError(error) 
 
 
@@ -71,14 +73,9 @@ def get_master_exclude():
                 logv.append(db)
                 logv.append(r['timestamp'])
                 logv.append(r['error_msg'])
-                try:
-                    logv[4]
-                except IndexError:
-                    print "End of file:%s"%fn
-                else:
-                    if(logv[4] == '000000'):
-                        rec = dict(zip(logv_name, logv))
-                        records.append(rec)
+                if(logv[4] == '000000'):
+                    rec = dict(zip(logv_name, logv))
+                    records.append(rec)
         else:
             records = update_master.records
 
