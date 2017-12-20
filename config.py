@@ -17,3 +17,7 @@ DELETED_BIBS_PHY = '/proj/ads/abstracts/phy/index/LOGS/*'
 UPDATE_MASTER_AST = '/proj/ads/abstracts/ast/update/master.list'
 UPDATE_MASTER_PHY = '/proj/ads/abstracts/phy/update/master.list'
 UPDATE_MASTER_GEN = '/proj/ads/abstracts/gen/update/master.list'
+
+# Parameters
+DO_PARSE = True
+DO_EXCLUDE_IN_PROGRESS = False

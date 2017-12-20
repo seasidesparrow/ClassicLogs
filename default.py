@@ -11,7 +11,7 @@ class DefaultClassicLog(object):
 
     def data(self):
         with open(self.filename) as fp:
-            self.data = fp.read()
+            self.data = fp.read().strip()
 
 
     def parse(self):
