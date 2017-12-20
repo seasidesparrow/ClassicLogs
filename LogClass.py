@@ -1,6 +1,11 @@
+import os
+
 class MissingParser(Exception):
     pass
 
+
+class MissingLogfileError(Exception):
+    pass
 
 
 class DefaultParser(object):
@@ -9,4 +14,12 @@ class DefaultParser(object):
 
 
 
-class ClassicLogGenericParser(object):
+#class ClassicLogGenericReader(object):
+
+
+def read(fp):
+
+    for l in fp.readlines():
+        data = fp.read()
+            
+    return data

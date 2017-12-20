@@ -1,0 +1,35 @@
+import os
+
+class GenericClassicLog(object):
+
+    class MissingFileError(Exception):
+        pass
+
+    def __init__(self):
+        x = None
+
+    def _isfile(self, filename):
+        if os.path.isfile(filename):
+            pass
+        else:
+            raise self.MissingFileError("No such file:"+filename)
+        return
+
+    def _data(self, filename):
+        with open(filename) as fp:
+            data = fp.read()
+        return data
+
+
+foo = GenericClassicLog()
+
+fn = '/Users/mtempleton/notes.txt'
+
+try:
+    foo._isfile(fn)
+except foo.MissingFileError:
+    print "lol, "+fn+" isnt a file."
+else:
+    x = foo._data(fn)
+
+print(x)
