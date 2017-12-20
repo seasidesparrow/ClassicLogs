@@ -20,4 +20,4 @@ UPDATE_MASTER_GEN = '/proj/ads/abstracts/gen/update/master.list'
 
 # Parameters
 DO_PARSE = True
-DO_EXCLUDE_IN_PROGRESS = False
+DO_EXCLUDE_IN_PROGRESS = True

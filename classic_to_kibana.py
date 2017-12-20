@@ -72,7 +72,7 @@ def get_master_exclude():
         log_object = get_log_data(fn)
 
         if config.DO_PARSE:
-            log_object_recs = [rec for rec in log_object.records if '\t000000\t' in rec['error_msg']]
+            log_object_recs = [rec for rec in log_object.records if '\t000000' in rec['error_msg']]
             logv_name = ['bibcode','bibfile','bibfile2','YYMM','number',
                          'database','timestamp','message']
             db = fn[20:23]
