@@ -4,7 +4,7 @@ import glob
 import json
 import os
 
-from default import DefaultClassicLog
+from parsers.default import DefaultClassicLog
 
 
 class MissingLogfileError(Exception):
