@@ -7,7 +7,6 @@ import sys
 from glob import glob
 from classiclogs import make_kibana_records
 import json
-#from serializers.serializer_mp import ArxivToMasterPipeline
 
 def get_arguments():
 
@@ -43,14 +42,12 @@ def main():
 
 
 
-
-
 #       print "\n\nBEGIN send parsed records to Master Pipeline ...\n\n"
 #       for r in parsed_records:
 #           if args.parse_only:
 #               print ("\n"+str(r)+"\n")
 #           else:
-#               mpsender=ArxivToMasterPipeline()
+#               mpsender=...
 #               mpsender.serialize(r)
 
     return
