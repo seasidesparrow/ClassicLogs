@@ -20,6 +20,12 @@ def get_arguments():
                         action = 'store_true',
                         help = 'Send one test record to kibana')
 
+    parser.add_argument('-s',
+                        '--sample',
+                        dest = 'sample',
+                        action = 'store_true',
+                        help = 'Send a snippet of each log instead of the full log')
+
     args=parser.parse_args()
     return args
 
@@ -35,6 +41,17 @@ def main():
 
     else:
         records = make_kibana_records()
+
+    if args.sample:
+        rec_temp = []
+        for r in records:
+            logfile = r['logfile']
+            sample = []
+            for i in range(5):
+                sample.append(r['records'][i])
+            rec_temp.append({'logfile': logfile, 'records': sample})
+        records = rec_temp
+                
 
     print json.dumps(records, sort_keys = True, indent = 2)
 
