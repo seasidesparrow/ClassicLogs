@@ -19,7 +19,7 @@ def get_arguments():
                         '--diagnose',
                         dest = 'diag',
                         action = 'store_true',
-                        help = 'Send one test ArXiv record to the pipeline')
+                        help = 'Send one test record to kibana')
 
     args=parser.parse_args()
     return args
@@ -31,9 +31,13 @@ def main():
     args = get_arguments()
 
 
-    test = make_kibana_records()
+    if args.diag:
+        records = ['test']
 
-    print json.dumps(test, sort_keys = True, indent = 2)
+    else:
+        records = make_kibana_records()
+
+    print json.dumps(records, sort_keys = True, indent = 2)
 
 
 
