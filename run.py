@@ -1,12 +1,13 @@
 #!/usr/bin/env python
 
-import config.config as cfg
+from config import config
 import gzip
 import os
 import sys
 from glob import glob
-from parsers.arxiv import ArxivParser
-from serializers.serializer_mp import ArxivToMasterPipeline
+from classiclogs import make_kibana_records
+import json
+#from serializers.serializer_mp import ArxivToMasterPipeline
 
 def get_arguments():
 
@@ -30,20 +31,24 @@ def main():
     args = get_arguments()
 
 
+    test = make_kibana_records()
+
+    print json.dumps(test, sort_keys = True, indent = 2)
 
 
 
 
 
-        print "\n\nBEGIN send parsed records to Master Pipeline ...\n\n"
-        for r in parsed_records:
-            if args.parse_only:
-                print ("\n"+str(r)+"\n")
-            else:
-                mpsender=ArxivToMasterPipeline()
-                mpsender.serialize(r)
 
-    print "DONE."
+
+#       print "\n\nBEGIN send parsed records to Master Pipeline ...\n\n"
+#       for r in parsed_records:
+#           if args.parse_only:
+#               print ("\n"+str(r)+"\n")
+#           else:
+#               mpsender=ArxivToMasterPipeline()
+#               mpsender.serialize(r)
+
     return
 
 

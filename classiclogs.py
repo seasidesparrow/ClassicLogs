@@ -1,9 +1,9 @@
+from config import config
 import datetime
 import glob
 import json
 import os
 
-import config
 from default import DefaultClassicLog
 
 
@@ -89,18 +89,45 @@ def get_master_exclude():
 
 
 # "DOI/FIXME" Log 
+def create_or_append(k1,k2,dct):
+    try:
+        dct[k1]
+    except KeyError:
+        dct[k1]=[k2]
+    else:
+        dct[k1].append(k2)
+    return
+
+
+def select_multis(dct,n):
+    out = [(k,dct[k]) for k in dct.keys() if len(dct[k]) > n]
+    return out
+
+
 def doi_error_read():
 
     records = []
 
-    fn = config.DOI_ERROR_LOG
+#   fn = '/proj/ads/abstracts/config/links/DOI/FIXME'
+    fn = config.ALL_LINKS_LOG
     log_object = get_log_data(fn)
 
     if config.DO_PARSE:
-        logv_name = ['error_type','doi','timestamp','message']
+
+        bib_doikeyed = {}
+        doi_bibkeyed = {}
+
+        errors = ['Duplicate DOIs for bibcode:','Duplicate bibcodes for DOI:']
+        logv_name = ['error_type','ID','Duplicate_IDs','timestamp']
         for r in log_object.records:
-            logv = r['error_msg'].split()
-            records.append(make_record(logv_name,logv,r))
+            (bibc, doi) = r['error_msg'].strip('\t').split('\t')
+            create_or_append(doi,bibc,bib_doikeyed)
+            create_or_append(bibc,doi,doi_bibkeyed)
+        doi_out = [(errors[0],a,b,r['timestamp']) for (a,b) in select_multis(doi_bibkeyed,1)]
+        doi_out.append([(errors[1],a,b,r['timestamp']) for (a,b) in select_multis(bib_doikeyed,1)])
+        for r in doi_out:
+            records.append(dict(zip(logv_name,r)))
+
     else:
         records = log_object.records
 

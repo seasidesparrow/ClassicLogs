@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
-# DOI Errors logfile
-DOI_ERROR_LOG = '/proj/ads/abstracts/config/links/DOI/FIXME'
+# DOI master list
+ALL_LINKS_LOG = '/proj/ads/abstracts/config/links/DOI/all.links'
 
 # Duplicate Bibcodes
 BIBCODE_DUPLICATE_LOG = '/proj/ads/abstracts/config/bibcodes.list.alt.dups'
